@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuejs</title>
+</head>
+
+<body>
+    <main>
+        <h1 v-if="conectado">Estoy conectado</h1>
+        <h1 v-if="edad < 18"> No puedes entrar</h1>
+        <h1 v-else-if="edad > 200">Eres inmortal</h1>
+        <h1 v-else>Puedes entrar</h1>
+
+        <template v-if="conectado">
+            <div>
+                <h3>Bienvenida Ana!</h3>
+                <ul>
+                    <li>
+                        <a href="#">Mis datos</a>
+                        <a href="#">Mensajes</a>
+                        <a href="#">Salir</a>
+                    </li>
+                </ul>
+            </div>
+        </template>
+
+        <h4 v-else=>No estás conectado</h4>
+
+    </main>
+
+    <script src="https://unpkg.com/vue@2.6.8/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

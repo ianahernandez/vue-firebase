@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuejs</title>
+
+    <style>
+        li {
+            cursor: pointer;
+        }
+        
+        .completado {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Tareas</h1>
+        <ul>
+            <li v-bind:class="{completado: tarea.completado}" v-on:click="completarTarea(tarea)" v-for="tarea in tareas">
+                {{ tarea.titulo }}
+            </li>
+        </ul>
+        <p>Tareas completadas: {{ tareasCompletadas }}</p>
+        <pre>
+            {{$data}}
+        </pre>
+    </main>
+
+    <script src="https://unpkg.com/vue@2.6.8/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

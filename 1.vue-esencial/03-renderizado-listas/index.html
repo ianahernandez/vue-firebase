@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuejs</title>
+</head>
+
+<body>
+    <main>
+        <!-- Matriz -->
+        <ul>
+            <li v-for="dia in laborales" :key="dia.id">
+                {{ dia }}
+            </li>
+        </ul>
+        <!-- Matriz de objeto -->
+        <ul>
+            <li v-for="(tarea,index) in tareas" :key="tarea.id">
+
+                {{index}}-{{ tarea.nombre }}
+
+                <small>({{ tarea.prioridad }})</small>
+            </li>
+        </ul>
+        <!-- Objeto -->
+        <ul>
+            <li v-for="(value,key,index) in persona">
+                {{ index }} - {{ key }} :{{ value }}
+            </li>
+        </ul>
+    </main>
+
+    <script src="https://unpkg.com/vue@2.6.8/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

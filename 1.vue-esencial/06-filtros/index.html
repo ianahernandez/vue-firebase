@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuejs</title>
+</head>
+
+<body>
+    <main>
+        <ul>
+            <li v-for="juego in mejoresJuegos">
+                {{ juego.titulo }}
+            </li>
+        </ul>
+
+        <input type="range" min="0" max="10" v-model="minimo">
+
+
+        <ul>
+            <li v-for="juego in buscarJuegos">
+                {{ juego.titulo }}
+            </li>
+        </ul>
+
+        <input type="text" placeholder="Buscar un juego" v-model="busqueda">
+        <pre>
+            {{ $data }}
+        </pre>
+    </main>
+
+    <script src="https://unpkg.com/vue@2.6.8/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
