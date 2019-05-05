@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Animate.css -->
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+
     <title>Vuejs</title>
 
     <style>
@@ -25,17 +28,63 @@
         .aparecer-leave-active {
             transition: opacity 1s;
         }
+        /* Animation */
+        
+        .bote-enter-active {
+            animation: bounce-in .5s;
+        }
+        
+        .bote-leave-active {
+            animation: bounce-in .5s reverse;
+        }
+        
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 
 <body>
     <main>
         <button @click="mostrar = !mostrar">Mostrar/Ocultar</button>
+
         <!-- Transition -->
         <transition name="aparecer">
             <h1 v-if="mostrar" v-text="mensajes.transicion"></h1>
         </transition>
 
+        <!-- Transition inicial -->
+        <transition name="aparecer" appear>
+            <h1 v-if="mostrar" v-text="mensajes.transicion"></h1>
+        </transition>
+
+        <!-- Animation -->
+        <transition name="bote">
+            <h1 v-if="mostrar" v-text="mensajes.animacion"></h1>
+        </transition>
+
+        <!-- Animate.css -->
+        <transition name="animatecss" enter-active-class="animated rotateInUpLeft" leave-active-class="animated zoomOutUp">
+            <h1 v-if="mostrar" v-text="mensajes.animationCustom"></h1>
+        </transition>
+
+        <!-- Transicion entre elementos -->
+        <!-- mode: out-in permite que el elemento de entrada aparezca despues que desaparece el elementos
+        de salida, sin solaparse -->
+        <transition name="aparecer" mode="out-in">
+            <!-- Se debe establecer un key en cada h1 ya que son elementos del mismo tipo,
+            para que tenga efecto la transicion -->
+            <h1 v-if="mostrar" v-text="mensajes.entreElementos" key="aparecer"></h1>
+            <h1 v-else key="ocultarse">No hay mensajes</h1>
+        </transition>
 
         <pre>{{$data}}</pre>
     </main>
